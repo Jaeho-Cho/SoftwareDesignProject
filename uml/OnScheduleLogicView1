@@ -28,10 +28,13 @@ rectangle "Accept Policy" {
 }
 
 rectangle "Finish Report Service" {
-	rectangle "Receive Information" as receive {
+	rectangle "Finish"
+	
+
+}
+rectangle "Receive Information" as receive {
 		
 		rectangle "Check Location" as location
-		
 		rectangle "Read " as read
 		rectangle "Check Transportation" as transportation
 		rectangle "Calculate" as calculate
@@ -45,10 +48,8 @@ rectangle "Finish Report Service" {
 		notify - calculate
 	}
 
-input - receive
-
-}
-
+	Finish - receive
+	input - Finish
 	inputsched - confirm
 	confirm - write
 	dispsched - readsched
@@ -56,6 +57,7 @@ input - receive
 	select -- confirm
 	select - modisched
 	confirm - delete
+
 	
 }
 @enduml
