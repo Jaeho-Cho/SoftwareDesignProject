@@ -11,8 +11,9 @@ rectangle "Receive Information" {
 		}
 	}
 	
-	rectangle "EDataCollection " as read <<process>> {
-		rectangle "MDataManager " as datamanager <<module>> {
+	rectangle "EDataRead " as read <<process>> {
+	
+		rectangle "MDataReadBuffer " as datamanager <<module>> {
 			rectangle "ELocationData" as locationdata <<thread>>
 			rectangle "ETransportationData" as transportationdata <<thread>>
 		}
@@ -39,13 +40,20 @@ rectangle "Receive Information" {
 	
 
 
-
 	locationdata -down- locationdatacollection
 	transportationdata -down- transportationdatacollection
 	validationl - timediff
 	validationt - timediff
 	timediff - displaytext
+	databaseclient -up- database
+	locationdata -up- databaseclient
+	transportationdata -up- databaseclient
 	
+}
+rectangle "MDatabaseClient" as databaseclient <<process>> {
+	
+}
+database "SQLite" as database {
 	
 }
 @enduml

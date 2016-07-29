@@ -13,6 +13,10 @@ rectangle "Receive Information" {
 	location -up- calculate
 	transportation - calculate
 	notify - calculate
+	read - database
+}
+database "SQLite" as database {
+	
 }
 
 @enduml

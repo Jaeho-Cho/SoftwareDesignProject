@@ -1,4 +1,11 @@
 @startuml
+rectangle "Show Schedule" as showsched {
+	rectangle "Display Schedule Information" as dispsched
+	rectangle "Read Schedule Information" as readsched
+
+	
+	dispsched - readsched
+	}
 rectangle "Delete Schedule" {
 
 	
@@ -8,16 +15,15 @@ rectangle "Delete Schedule" {
 	rectangle "Confirm" as confirm
 	rectangle "Delete" as delete
 	
-	rectangle "Show Schedule" as showsched {
-		rectangle "Display Schedule Information" as dispsched
-		rectangle "Read Schedule Information" as readsched
 
-		
-		dispsched - readsched
-		}
 
 	dispsched - select
 	select - confirm
 	confirm - delete
+	delete - database
 	}
+
+database "SQLite" as database {
+	
+}
 @enduml

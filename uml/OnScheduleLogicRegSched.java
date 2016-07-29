@@ -6,5 +6,9 @@ rectangle "Register Schedule" {
 	
 	inputsched - confirm
 	confirm - write
+	write - database
 	}
+database "SQLite" as database {
+	
+}
 @enduml

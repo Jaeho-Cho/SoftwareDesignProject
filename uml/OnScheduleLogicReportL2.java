@@ -34,12 +34,18 @@ rectangle "Receive Information" {
 		displaytext - speakerout
 	
 	}
+	database "SQLite" as database {
+		
+	}
 	
 	locationdata -down- locationdatacollection
 	transportationdata -down- transportationdatacollection
 	validationl - timediff
 	validationt - timediff
 	timediff - displaytext
+	locationdata -up- database
+	transportationdata -up- database
+	
 	
 	
 }

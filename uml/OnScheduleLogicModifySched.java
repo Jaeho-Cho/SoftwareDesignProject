@@ -26,6 +26,13 @@ rectangle "Register Schedule" as regsched {
 	inputsched - confirm
 	confirm - write
 	}
+
+database "SQLite" as database {
+	
+}
 dispsched - select
 select - regsched
+readsched -down- database
+write -up- database
+
 @enduml
