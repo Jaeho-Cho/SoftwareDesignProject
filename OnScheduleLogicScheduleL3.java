@@ -1,6 +1,6 @@
 @startuml
 actor User
-rectangle "Scheduler" as scheduler {
+rectangle "LScheduler" as scheduler {
 		
 		rectangle "LScheduleEventListener" as schedeventlistener {
 			
