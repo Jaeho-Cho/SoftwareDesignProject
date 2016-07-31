@@ -1,124 +1,25 @@
 @startuml
-package "OnSchedule" {
-	package "Database" {
-	
-    package "SchedDataBase" {
+!pragma horizontalLineBetweenDifferentPackageAllowed
 
-
-		} 
-		  
-	  package "LocationDataBase" {
-
-		} 
-	  
-	  package "SubWayNameIDDataBase" {
-
-		} 
-
-	  
-	}
-
-package "InputOutput" {
-	
-    package "LocationPointXY" {
-
-
-		} 
-		  
-	  package "SchedConstant" {
-
-		} 
-	  
-	  package "SubwayInfo" {
-
-		} 
-	  
-	  package "SubwayNameIDInfo" {
-
-		} 
-	  
-    
-	  package "SchedInfo" {
-
-		} 
-	  
-	  package "SchedInfoDetail" {
-
-		} 
-	  
-	  package "LocationInfo" {
-
-		} 
-
-	  
-	}
-
-	package "Parser" {
-	
-		package "JSONManager" {
-
-
-		} 
-		        
-	    			  
-	}
-	
-	package "Receiver" {
+Rectangle ":onSchedule" {
+	Package "GUI"<<layer>> {
 		
-	      package "ProximityReceiver" {
-
-
-			} 
-			  
-		  package "AlarmReciver" {
-
-			} 
-		  
-
-	      
-		    			  
-		}
-	
-	package "View" {
+	}
+	Package "Application" <<layer>> {
 		
-	      package "ShowSchedActivity" {
-
-
-			} 
-			  
-		  package "ReportActivity" {
-
-			} 
-		  
-		  package "MainActivity" {
-
-			} 
-		  
-		  package "RegisterSchedTimeActivity" {
-
-			} 
-		  
-		  package "SettingsSchedActivity" {
-
-			} 
-		  
-		  package "RegisterSchedDateActivity" {
-
-			} 
-	      
-		  package "IntroActivity" {
-
-			} 
-
-		  
-		}
+	}
+	Package "SystemService" <<layer>> {
+		
+	}
+	Package "Library" <<layer>> {
+		
+	}
 	
-	    package "DAUM Open API" as DAUM {
-	
-			}
-    
-	    package "Public Data Open API" as Public {
-	
-			}
+	GUI .d. Application
+	Application .d. SystemService
+	Application .r. Library
 }
+Package "Hardware" <<layer>>
+
+SystemService .d. Hardware
 @enduml
